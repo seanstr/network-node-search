@@ -1,8 +1,7 @@
 #README
 
 ##Note
-This package is to showcase code only.  It is not intended to be runnable, and references to any company name have been obfuscated.
-
+This package is to showcase code only.  It is not intended to be runnable, and any sensitive information has been removed or changed.
 ##Pre setup
 * Ensure that a ConnectionString.asp file is created. Use ConnectionString.asp.tmpl as a template
 * Ensure the Microsoft SDK is installed on the web server. This is required in order to run Step 4 below
