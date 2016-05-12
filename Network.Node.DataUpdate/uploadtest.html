@@ -1,0 +1,53 @@
+<html>
+<head>
+<title></title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+function FileVisits() {
+    var fileData = JSON.stringify({
+		dataType:"csv",
+        data: $('#fileToUpload').val()
+    });
+    alert(fileData);
+        "use strict";
+		var fileUploadURL = "FileUpload.svc/";
+        $.ajax({
+            cache: false,
+            url: fileUploadURL + "uploadFile/",               
+            data: fileData,
+            type: "POST",
+            processData: false,
+            contentType: "application/json",
+            timeout: 10000,
+            dataType: "json",
+            headers:    {
+                        'User-agent': 'Mozilla/5.0 (compatible) Greasemonkey',
+                        'Accept': 'application/atom+xml,application/xml,text/xml',
+                    },
+            beforeSend: function (xhr) {
+                //$.mobile.showPageLoadingMsg();
+
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+
+            },
+            complete: function () {
+                //$.mobile.hidePageLoadingMsg();
+            },
+
+            success: function (data) {
+                var result = data;
+
+
+            },
+            error: function (data) {
+                alert("Error");
+            }
+        });
+	}
+</script>
+<head>
+<body>
+	<input id="fileToUpload" type="browse"><button onClick="Upload();">Upload</button>
+</body>
+</html>
